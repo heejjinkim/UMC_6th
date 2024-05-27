@@ -3,6 +3,8 @@ import lombok.*;
 import umc.spring.domain.base.BaseEntity;
 
 import jakarta.persistence.*;
+import umc.spring.domain.mapping.MemberAgree;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,4 +24,7 @@ public class Terms extends BaseEntity {
     private String body;
 
     private Boolean optional;
+
+    @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
+    private List<MemberAgree> memberAgreeList = new ArrayList<>();
 }

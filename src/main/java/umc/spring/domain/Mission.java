@@ -3,6 +3,7 @@ import lombok.*;
 
 import jakarta.persistence.*;
 import umc.spring.domain.base.BaseEntity;
+import umc.spring.domain.mapping.MemberMission;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,4 +29,10 @@ public class Mission extends BaseEntity {
 
     private Integer point;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")
+    private Store store;
+
+    @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
+    private List<MemberMission> memberMissions = new ArrayList<>();
 }

@@ -20,6 +20,4 @@ public class FoodCategory extends BaseEntity {
     private Long id;
 
     private String name;
-
-
 }
