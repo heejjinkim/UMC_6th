@@ -1,0 +1,51 @@
+package umc.spring.domain;
+import lombok.*;
+import umc.spring.domain.base.BaseEntity;
+import umc.spring.domain.enums.Gender;
+import umc.spring.domain.enums.MemberStatus;
+import umc.spring.domain.enums.SocialType;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 10)
+    private String name;
+
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(10)")
+    private Gender gender;
+
+    @Column(nullable = false)
+    private LocalDate birth;
+
+    @Column(nullable = false, length = 50)
+    private String address;
+
+    @Column(nullable = false, length = 30)
+    private String addressSpec;
+
+    private Integer point;
+
+    @Column(nullable = false, length = 15)
+    private String phoneNum;
+
+    @Column(nullable = false, length = 30)
+    private String email;
+
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
+    private MemberStatus status;
+
+    @Enumerated(EnumType.STRING)
+    private SocialType socialType;
+
+    private LocalDate inactiveDate;
+
+}
