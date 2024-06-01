@@ -1,5 +1,8 @@
 package umc.spring.domain;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.domain.base.BaseEntity;
 import umc.spring.domain.enums.Gender;
 import umc.spring.domain.enums.MemberStatus;
@@ -15,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@DynamicUpdate
+@DynamicInsert
 @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -40,6 +45,7 @@ public class Member {
     @Column(nullable = false, length = 30)
     private String addressSpec;
 
+    @ColumnDefault("0")
     private Integer point;
 
     @Column(nullable = false, length = 15)
