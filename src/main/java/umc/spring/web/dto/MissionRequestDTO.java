@@ -4,6 +4,8 @@ import lombok.Getter;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import umc.spring.validation.annotation.ExistMember;
+import umc.spring.validation.annotation.ExistMission;
 import umc.spring.validation.annotation.ExistStore;
 
 import java.time.LocalDate;
@@ -23,4 +25,14 @@ public class MissionRequestDTO {
         @JsonFormat(pattern = "yyyy-MM-dd")
         LocalDate deadline;
     }
+
+
+    @Getter
+    public static class ChallengeDTO {
+        @ExistMember
+        Long memberId;
+        @ExistMission
+        Long missionId;
+    }
+
 }
