@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import umc.spring.apiPayload.ApiResponse;
 import umc.spring.converter.MissionConverter;
 import umc.spring.domain.Mission;
+import umc.spring.domain.mapping.MemberMission;
 import umc.spring.service.MissionService.MissionService;
+import umc.spring.validation.annotation.ChallengingMission;
 import umc.spring.web.dto.MissionRequestDTO;
 import umc.spring.web.dto.MissionResponseDTO;
 
@@ -25,5 +27,11 @@ public class MissionRestController {
     public ApiResponse<MissionResponseDTO.createResultDTO> join(@RequestBody @Valid MissionRequestDTO.CreateDTO request){
         Mission mission = missionService.createMission(request);
         return ApiResponse.onSuccess(MissionConverter.toCreateResultDTO(mission));
+    }
+
+    @PostMapping("/challenge")
+    public ApiResponse<MissionResponseDTO.challengeResultDTO> challengingMission(@Valid @RequestBody @ChallengingMission MissionRequestDTO.ChallengeDTO request){
+        MemberMission memberMission = missionService.challengeMission(request);
+        return ApiResponse.onSuccess(MissionConverter.toChallengeResultDTO(memberMission));
     }
 }
