@@ -6,4 +6,6 @@ import umc.spring.web.dto.StoreRequestDTO;
 public interface StoreService {
 
     public Store joinStore(StoreRequestDTO.JoinDto request);
+
+    boolean existStore(Long value);
 }
