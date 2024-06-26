@@ -3,7 +3,6 @@ package umc.spring.validation.validator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.spring.apiPayload.code.status.ErrorStatus;
-import umc.spring.repository.FoodCategoryRepository;
 import umc.spring.service.FoodCategoryService.FoodCategoryService;
 import umc.spring.validation.annotation.ExistCategories;
 
