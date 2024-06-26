@@ -1,5 +1,7 @@
 package umc.spring.converter;
 import umc.spring.domain.Mission;
+import umc.spring.domain.enums.MissionStatus;
+import umc.spring.domain.mapping.MemberMission;
 import umc.spring.web.dto.MissionRequestDTO;
 import umc.spring.web.dto.MissionResponseDTO;
 
@@ -18,6 +20,19 @@ public class MissionConverter {
                 .title(request.getTitle())
                 .content(request.getContent())
                 .deadline(request.getDeadline())
+                .build();
+    }
+
+    public static MemberMission toMemberMission(){
+        return MemberMission.builder()
+                .status(MissionStatus.CHALLENGING)
+                .build();
+    }
+
+    public static MissionResponseDTO.challengeResultDTO toChallengeResultDTO(MemberMission memberMission){
+        return MissionResponseDTO.challengeResultDTO.builder()
+                .memberMissionId(memberMission.getId())
+                .createdAt(memberMission.getCreatedAt())
                 .build();
     }
 }
