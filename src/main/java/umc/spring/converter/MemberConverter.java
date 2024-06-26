@@ -36,6 +36,7 @@ public class MemberConverter {
         Integer birthMonth = request.getBirthMonth();
         Integer birthDay = request.getBirthDay();
         LocalDate birth = LocalDate.of(birthYear, birthMonth, birthDay);
+        String email = request.getEmail();
 
         return Member.builder()
                 .address(request.getAddress())
@@ -44,6 +45,7 @@ public class MemberConverter {
                 .name(request.getName())
                 .memberPrefers(new ArrayList<>())
                 .birth(birth)
+                .email(email)
                 .phoneNum(request.getPhoneNum())
                 .build();
     }

@@ -30,5 +30,7 @@ public class MemberRequestDTO {
         List<Long> preferCategory;
         @NotNull
         String phoneNum;
+        @NotNull
+        String email;
     }
 }
