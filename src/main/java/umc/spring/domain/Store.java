@@ -1,5 +1,6 @@
 package umc.spring.domain;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import umc.spring.domain.base.BaseEntity;
 
 import jakarta.persistence.*;
@@ -18,14 +19,11 @@ public class Store extends BaseEntity {
     @Column(length = 30)
     private String name;
 
+    @ColumnDefault("0")
     private Float totalScore;
 
     @Column(length = 50)
     private String address;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "food_category_id")
-    private FoodCategory foodCategory;
 
     private String imageUrl;
 
