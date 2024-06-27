@@ -33,6 +33,9 @@ public enum ErrorStatus implements BaseErrorCode {
     MISSION_NOT_FOUND(HttpStatus.BAD_REQUEST, "MISSION4001", "미션이 없습니다."),
     MISSION_ALREADY_CHALLENGING(HttpStatus.BAD_REQUEST, "MISSION4002", "이미 도전 중인 미션입니다"),
 
+    // page 관련 에러
+    PAGE_TOO_SMALL(HttpStatus.BAD_REQUEST, "PAGE4001", "페이지 범위가 너무 작습니다."),
+
     // Ror test
     TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트");
 
